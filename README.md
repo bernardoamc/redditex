@@ -1,20 +1,32 @@
 # Redditex
 
-**TODO: Add description**
+**List topics of a subreddit from the command line.**
 
-## Installation
+## Initial Steps
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+To run the tests:
+```
+mix test
+```
 
-  1. Add redditex to your list of dependencies in `mix.exs`:
+To compile the project:
 
-        def deps do
-          [{:redditex, "~> 0.0.1"}]
-        end
+First, update dependencies with:
+```
+mix.deps.get
+```
 
-  2. Ensure redditex is started before your application:
+Then, build the app with:
+```
+mix escript.build
+```
 
-        def application do
-          [applications: [:redditex]]
-        end
+## Usage
 
+```
+./redditex --help
+
+./redditex mysubreddit
+
+./redditex mysubreddit --order new|rising|controversial|top|gilded|wiki|promoted
+```
