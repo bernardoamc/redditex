@@ -4,12 +4,19 @@
 
 ## Initial Steps
 
-To run the tests:
+**Running tests**
+
+To run the tests that do not make external requests:
 ```
 mix test
 ```
 
-To compile the project:
+To run all the tests:
+```
+mix test --include reddit_request
+```
+
+**Compiling the project:**
 
 First, update dependencies with:
 ```

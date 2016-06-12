@@ -24,4 +24,15 @@ defmodule Redditex.RequestTest do
     assert Redditex.Request.get(%Redditex.Request{name: "test", order: "new"}, HTTPMock) ==
       {:ok, :success_with_order}
   end
+
+  @tag :reddit_request
+  test "reddit returns expected JSON structure" do
+    {:ok, body} = Redditex.Request.get(%Redditex.Request{name: "bjj"}, HTTPoison)
+
+    response = body
+      |> Poison.decode!
+
+    assert Map.has_key?(response, "data")
+    assert Map.has_key?(response["data"], "children")
+  end
 end
